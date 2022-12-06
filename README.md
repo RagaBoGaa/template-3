@@ -1,2 +1,21 @@
-# template-3
-a template inspired from Elzero,  fully coded by me
+
+# Hi, I'm Ragab! 👋😀
+
+## 🚀 About Me
+I'm willing to be one of the best professional
+ developers... 💪
+
+
+## 🛠 Skills
+ HTML, CSS... (JavaScript upcoming) 👀
+
+## Design Inspired From Elzero And Fully Coded By ME
+
+### Screenshots
+
+![](./desktop.webp)
+![](./mobile.png)
+
+## Demo
+
+https://ragabogaa.github.io/template-3
