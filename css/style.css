@@ -1,0 +1,1793 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+/* ====================== Variables ======================== */
+:root {
+  --main-color: #2196f3;
+  --main-color-alt: #1787e0;
+  --main-transition: 0.3s;
+  --section-background: #ececec;
+  --border-color: hsl(0deg 0% 91%);
+  --hover-color: hsl(0deg 0% 98%);
+  --section-spacing: 100px;
+  --box-shadow: 0 0 10px #ddd;
+  --container-s: 750px;
+  --container-md: 970px;
+  --container-lg: 1170px;
+}
+/* ====================== General Style ======================== */
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ====================== Compononet ======================== */
+
+/* ================== Section Heading With Moving Dots ================== */
+.section__head {
+  position: relative;
+  width: fit-content;
+  border: 2px solid black;
+  padding: 1rem 2rem;
+  margin-inline: auto;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-block-end: 5rem;
+  z-index: 5;
+}
+
+.section__head::before,
+.section__head::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--main-color-alt);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--main-transition) linear;
+}
+
+.section__head::before {
+  left: -30px;
+}
+
+.section__head::after {
+  right: -30px;
+}
+
+.section__head:hover {
+  cursor: pointer;
+  color: white;
+  border: 2px solid white;
+  transition-delay: 0.2s;
+}
+
+.section__head:hover::before {
+  width: 51%;
+  height: 100%;
+  left: 0;
+  border-radius: 0;
+  z-index: -1;
+}
+.section__head:hover::after {
+  width: 51%;
+  height: 100%;
+  right: 0;
+  border-radius: 0;
+  z-index: -1;
+}
+/* ==================/Section Heading With Moving Dots ================== */
+
+/* ================== Section Seprator ================== */
+.section__seprator {
+  position: relative;
+}
+
+.section__seprator::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 25px;
+  background-image: linear-gradient(120deg, #fff 30%, transparent 25%),
+    linear-gradient(240deg, #fff 30%, transparent 25%);
+  background-size: 25px 25px;
+}
+/* ==================/Section Seprator ================== */
+
+.container {
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: var(--container-s);
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: var(--container-md);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: var(--container-lg);
+  }
+}
+
+/* ====================== Header ======================== */
+
+header {
+  box-shadow: var(--box-shadow);
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+header .container .logo a {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+header .container .main-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 60px; */
+}
+
+header .container .main-list > li > a {
+  display: block;
+  padding: 1rem 2rem;
+  color: black;
+  cursor: pointer;
+  position: relative;
+  transition: var(--main-transition);
+}
+
+header .container .main-list > li > a:hover {
+  background-color: var(--hover-color);
+  color: var(--main-color);
+}
+
+header .container .main-list > li > a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+}
+
+header .container .main-list > li > a:hover::before {
+  width: 100%;
+}
+
+header .container .main-list li:nth-child(4):hover + .big__menu,
+header .container .main-list .big__menu:hover {
+  display: flex;
+}
+
+header .container .main-list .big__menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  background: #fff;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2rem;
+  border-bottom: 4px solid var(--main-color);
+  z-index: 5;
+}
+
+header .container .main-list .big__menu .img__holder {
+  flex-basis: 40%;
+}
+
+header .container .main-list .big__menu .list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+header .container .main-list .big__menu .list .left-list li:not(:last-child),
+header .container .main-list .big__menu .list .right-list li:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+header .container .main-list .big__menu .list a {
+  display: block;
+  width: 100%;
+  color: var(--main-color);
+  padding: 10px 3rem 10px 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  transition: var(--main-transition) linear;
+}
+
+header .container .main-list .big__menu .list li a:hover {
+  background-color: var(--hover-color);
+}
+
+header .container .main-list .big__menu .list i {
+  margin-inline: 1rem;
+}
+
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    padding-block-start: 1rem;
+  }
+
+  header .container .main-list {
+    margin-block-start: 1rem;
+  }
+
+  header .container .main-list > li > a {
+    padding: 0.5rem;
+    font-size: 11px;
+    margin: 0;
+  }
+
+  header .container .main-list .big__menu {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  header .container .main-list .big__menu .img__holder {
+    display: none;
+    width: 200px;
+  }
+
+  header .container .main-list .big__menu .list {
+    display: block;
+    width: 100%;
+  }
+
+  header .container .main-list .big__menu .list .left-list,
+  header .container .main-list .big__menu .list .right-list {
+    border-top: 1px solid var(--border-color);
+  }
+
+  header .container .main-list .big__menu .list li > a {
+    font-size: 14px;
+  }
+}
+
+/* ======================/Header ======================== */
+
+/* ====================== Landing ======================== */
+
+main section.landing {
+  min-height: calc(100vh - 56px);
+  position: relative;
+  overflow: hidden;
+}
+
+main section.landing::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--section-background);
+  z-index: -1;
+  transform: skewY(-10deg);
+  transform-origin: bottom left;
+}
+
+main section.landing .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main section.landing .container .main__title .main__head {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+main section.landing .container .main__title .main__paragraph {
+  color: #666;
+  line-height: 2;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+main section.landing .container .img__holder {
+  flex-basis: 80%;
+  animation: up-down 5s linear infinite forwards alternate;
+  position: relative;
+}
+
+main section.landing .arrow a {
+  position: absolute;
+  color: var(--main-color);
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 9rem;
+  animation: jump 0.7s infinite;
+}
+
+@media (max-width: 768px) {
+  main section.landing .container {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  main section.landing .container .main__title .main__head {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  main section.landing .container .main__title .main__paragraph {
+    margin-block-start: 1rem;
+    text-align: center;
+    line-height: 1.6;
+  }
+}
+
+/* ======================/Landing ======================== */
+
+/* ====================== Articles ======================== */
+
+main section.article {
+  padding-block: var(--section-spacing);
+}
+
+main section.article .container .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+main section.article .container .cards .card {
+  width: 22%;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+  transition: var(--main-transition);
+  cursor: pointer;
+
+  overflow: hidden;
+}
+
+main section.article .container .cards .card:hover {
+  transform: translateY(-10px);
+}
+
+main section.article .container .cards .content,
+main section.article .container .cards .more {
+  padding: 1rem;
+}
+
+main section.article .container .cards .content h3 {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+main section.article .container .cards .content p {
+  line-height: 1.7;
+  margin-block: 0.5rem;
+  color: #666;
+}
+
+main section.article .container .cards .more {
+  border-top: 1px solid var(--border-color);
+}
+
+main section.article .container .cards .more a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--main-color);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+main section.article .container .cards .more a i {
+  animation: move-right 0.7s infinite forwards alternate;
+}
+
+@media (max-width: 768px) {
+  main section.article .container .cards .card {
+    width: 100%;
+  }
+}
+
+@media (min-width: 590px) and (max-width: 768px) {
+  main section.article .container .cards .card {
+    width: calc((100% / 2) - 2rem);
+  }
+}
+
+/* ======================/Articles ======================== */
+
+/* ====================== Gallery ======================== */
+
+main section.gallery {
+  padding-block: var(--section-spacing);
+  background-color: var(--section-background);
+}
+
+main section.gallery .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+main section.gallery .container .card {
+  padding: 1rem;
+  background-color: #fff;
+
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+main section.gallery .container .card img {
+  transition: var(--main-transition) linear;
+}
+
+main section.gallery .container .card:hover img {
+  transform: scale(1.1) rotate(5deg);
+  transition: var(--main-transition) linear;
+}
+
+main section.gallery .container .card .img__holder {
+  position: relative;
+  overflow: hidden;
+}
+
+main section.gallery .container .card .img__holder::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  background-color: rgb(255 255 255 / 10%);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+main section.gallery .container .card .img__holder:hover::before {
+  animation: fade-out 0.7s;
+}
+
+/* ======================/Gallery ======================== */
+
+/* ====================== Features ======================== */
+
+main section.features {
+  padding-block: var(--section-spacing);
+}
+
+main section.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+main section.features .container .box {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+}
+
+main section.features .container .box .img__holder {
+  position: relative;
+  overflow: hidden;
+}
+
+main section.features .container .box .img__holder::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transform: skew(120deg, 6deg);
+  transform-origin: bottom left;
+  transition: var(--main-transition);
+  z-index: 1; /* To Make The White Layer On Top Of The Colored Layer */
+}
+
+main section.features .container .box:hover .img__holder::before {
+  transform: skew(60deg, 0deg);
+  /* When Hovering Make The White Layer Go The Other Side */
+}
+
+main section.features .container .box h3 {
+  margin-inline: auto;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+main section.features .container .box p {
+  color: #666;
+  line-height: 2;
+  text-align: center;
+  padding: 1rem;
+}
+
+main section.features .container .box a {
+  padding: 0.5rem 2rem;
+  border: 2px solid;
+  border-radius: 10px;
+  margin-block-end: 2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  position: relative;
+  overflow: hidden;
+}
+
+/* To Make The Color Effect From Left */
+main section.features .container .box a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 100%;
+  transition: var(--main-transition);
+  z-index: -1;
+}
+
+/* Extends The Width Of The Psuedo Element */
+main section.features .container .box:hover a::before {
+  width: 110%;
+}
+
+main section.features .container .red .img__holder::after,
+main section.features .container .green .img__holder::after,
+main section.features .container .blue .img__holder::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Making a Red Layer On Top Of The Image */
+main section.features .container .red .img__holder::after {
+  background-color: rgb(244 67 54 / 50%);
+}
+
+main section.features .container .red h3 {
+  border-bottom: 5px solid #f44336;
+}
+
+main section.features .container .red a {
+  color: #f44336;
+  border: 3px solid #f44336;
+}
+
+main section.features .container .red:hover a {
+  color: #fff;
+}
+
+/* Fills The Psuedo Element With The Desired Color */
+main section.features .container .red a::before {
+  background-color: #f44336;
+}
+
+/* Making a Green Layer On Top Of The Image */
+main section.features .container .green .img__holder::after {
+  background-color: rgb(76 175 80 / 50%);
+}
+
+main section.features .container .green h3 {
+  border-bottom: 5px solid #4caf50;
+}
+
+main section.features .container .green a {
+  color: #4caf50;
+  border: 2px solid #4caf50;
+}
+
+main section.features .container .green:hover a {
+  color: #fff;
+}
+
+main section.features .container .green a::before {
+  background-color: #4caf50;
+}
+
+/* Making a Blue Layer On Top Of The Image */
+main section.features .container .blue .img__holder::after {
+  background-color: rgb(41 134 168 / 30%);
+}
+
+main section.features .container .blue h3 {
+  border-bottom: 5px solid hsl(199deg 98% 48%);
+}
+
+main section.features .container .blue a {
+  color: hsl(199deg 98% 48%);
+  border: 2px solid hsl(199deg 98% 48%);
+}
+
+main section.features .container .blue:hover a {
+  color: #fff;
+}
+
+main section.features .container .blue:hover a::before {
+  background-color: hsl(199deg 98% 48%);
+}
+
+/* ======================/Features ======================== */
+
+/* ====================== Testimonials ======================== */
+
+main section.testimonials {
+  padding-block: var(--section-spacing);
+  background-color: var(--section-background);
+}
+
+main section.testimonials .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+main section.testimonials .container .box {
+  background: #fff;
+  position: relative;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+}
+
+main section.testimonials .container .box .img__holder {
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  outline: 10px solid var(--section-background);
+  overflow: hidden;
+}
+
+main section.testimonials .container .box .title h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+main section.testimonials .container .box .title p {
+  margin-block: 5px;
+  color: #666;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+main section.testimonials .container .box .title i.golden__star {
+  color: #ffc107;
+}
+
+main section.testimonials .container .box > p {
+  margin-block-start: 5px;
+  color: #666;
+}
+
+/* ======================/Testimonials ======================== */
+
+/* ====================== Games ======================== */
+
+main section.games {
+  padding-block: var(--section-spacing);
+}
+
+main section.games .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+  gap: 2rem;
+}
+
+main section.games .container .card {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  gap: 0.5rem;
+  padding: 3.5rem 5px 1.5rem;
+  border-radius: 10px;
+  position: relative;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+
+main section.games .container .card:hover .img__holder {
+  filter: grayscale(1);
+}
+
+main section.games .container .card:hover::after {
+  width: calc(100% - 60px);
+  background-color: #ececec;
+}
+
+main section.games .container .card::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #f3f3f3;
+  height: 100%;
+  width: calc(100% - 60px);
+  border-radius: 10px;
+  z-index: -2;
+  transition: var(--main-transition);
+}
+
+main section.games .container .card::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 0;
+  height: 100%;
+  border-radius: 10px;
+  transition: var(--main-transition);
+  z-index: -1;
+}
+
+main section.games .container .card .img__holder {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+
+main section.games .container .card .icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  color: #666;
+}
+
+main section.games .container .card .icons i {
+  cursor: pointer;
+}
+main section.games .container .card .icons i:first-child:hover {
+  color: #4267b2;
+}
+
+main section.games .container .card .icons i:nth-child(2):hover {
+  color: #1da1f2;
+}
+
+main section.games .container .card .icons i:nth-child(3):hover {
+  color: #0072b1;
+}
+
+main section.games .container .card .icons i:nth-child(4):hover {
+  color: #ff0000;
+}
+
+main section.games .container .card .info {
+  text-transform: capitalize;
+  margin-inline: auto;
+  padding-inline-start: 3rem;
+}
+
+main section.games .container .card .info h3 {
+  color: var(--main-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* ======================/Games ======================== */
+
+/* ====================== Services ======================== */
+
+main section.services {
+  padding-block: var(--section-spacing);
+  background-color: var(--section-background);
+}
+
+main section.services .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+main section.services .container .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  background-color: white;
+  counter-increment: number;
+  box-shadow: var(--box-shadow), 0 1px 10px #9e9e9e;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+
+main section.services .container .card:hover {
+  transform: translateY(-10px);
+}
+
+main section.services .container .card::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translatex(-50%);
+  width: 0;
+  height: 5px;
+  background: var(--main-color);
+  transition: var(--main-transition);
+}
+
+main section.services .container .card:hover::before {
+  width: 100%;
+}
+
+main section.services .container .card::after {
+  content: "0" counter(number);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(
+    135deg,
+    var(--main-color) 25%,
+    0,
+    #d5d5d5 40%,
+    0,
+    #f9f9f9 100%
+  );
+  color: white;
+  font-size: 1.5rem;
+  padding-inline: 1rem;
+}
+
+main section.services .container .card .head {
+  text-align: center;
+  padding-block: 2.5rem;
+}
+
+main section.services .container .card .head i {
+  color: #d5d5d5;
+  font-size: 4rem;
+}
+
+main section.services .container .card .head h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--main-color);
+  margin-block-start: 1rem;
+  text-transform: capitalize;
+}
+
+main section.services .container .card a {
+  place-self: flex-end;
+  justify-content: center;
+  display: block;
+  color: var(--main-color);
+  text-transform: capitalize;
+  padding: 0.4rem 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ======================/Services ======================== */
+
+/* ====================== Our Skills ======================== */
+
+main section.skills {
+  padding-block: var(--section-spacing);
+}
+
+main section.skills .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+main section.skills .container .progress {
+  flex: 1;
+}
+
+main section.skills .container .progress .skill__holder h3 {
+  margin-block: 1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+
+main section.skills .container .progress .skill__holder .pro__bar {
+  position: relative;
+  width: 100%;
+  height: 1.8rem;
+  background-color: #eeeeee;
+  border-radius: 3px;
+}
+
+main section.skills .container .progress .skill__holder .pro__bar::after {
+  content: attr(data-progress);
+  position: absolute;
+  right: 0;
+  top: -45px;
+  color: var(--main-color);
+  background-color: white;
+  padding: 0.1rem 0.25rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+
+main section.skills .container .progress .skill__holder .pro__bar span {
+  display: block;
+  height: 100%;
+  background-color: var(--main-color);
+  position: relative;
+  border-radius: 3px;
+}
+
+/* ======================/Our Skills ======================== */
+
+/* ====================== How It Works ======================== */
+
+main section.how {
+  padding-block: var(--section-spacing);
+  background-color: var(--section-background);
+}
+main section.how .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+main section.how .container .cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main section.how .container .cards .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-block: 0.5rem;
+  padding: 1.5rem 2rem;
+  background-color: #f6f5f5;
+  border: 2px solid white;
+  border-radius: 5px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+main section.how .container .cards .card:hover::before {
+  height: 100%;
+  width: 100%;
+}
+main section.how .container .cards .card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0%;
+  height: 0%;
+  background-color: #ececec;
+  transition: var(--main-transition);
+
+  z-index: -1;
+}
+
+main section.how .container .cards .card .img__holder {
+  flex-basis: 25%;
+}
+
+main section.how .container .cards .card .text h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+main section.how .container .cards .card .text p {
+  line-height: 1.8;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  main section.how .container {
+    grid-template-columns: 1fr;
+  }
+
+  main section.how .container .cards {
+    margin-block-start: 2rem;
+  }
+  main section.how .container .cards .card {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+
+/* ======================/How It Works ======================== */
+
+/* ====================== Latest Events ======================== */
+
+main section.events {
+  padding-block: var(--section-spacing);
+}
+
+main section.events .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+main section.events .container .img__holder {
+  flex-basis: 35%;
+}
+
+main section.events .container .info {
+  flex-basis: 45%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+main section.events .container .info .time__holder {
+  display: flex;
+}
+main section.events .container .info .time__holder .time {
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+}
+
+main section.events .container .info .time__holder .time:not(:last-child) {
+  margin-inline-end: 0.5rem;
+}
+
+main section.events .container .info .time__holder .time span {
+  display: block;
+}
+
+main section.events .container .info .time__holder .time span:first-child {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.8rem 1.2rem;
+  color: var(--main-color);
+}
+
+main section.events .container .info .time__holder .time span:last-child {
+  border-top: 1px solid #d4d4d4;
+  padding: 0.3rem 0;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+main section.events .container .info .title h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+main section.events .container .info .title p {
+  color: #666;
+  line-height: 1.8;
+}
+
+main section.events .container form {
+  margin-block-start: 2rem;
+  padding: 1rem 1.5rem;
+  background-color: #d4d4d4d4;
+  border-radius: 5px;
+}
+
+main section.events .container form input[type="email"] {
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  border-radius: 5px;
+}
+
+main section.events .container form input[type="email"]::placeholder {
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #d4d4d4;
+  letter-spacing: 2px;
+}
+main section.events .container form input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-block-start: 1rem;
+  padding: 1rem 0.5rem;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  main section.events .container .img__holder {
+    display: none;
+  }
+
+  main section.events .container .info {
+    flex-basis: 100%;
+  }
+
+  main section.events .container .info .time__holder .time span:first-child {
+    font-size: 1.5rem;
+  }
+}
+
+/* ======================/Latest Events ======================== */
+
+/* ====================== Pricing  ======================== */
+
+main section.pricing {
+  padding-block: var(--section-spacing);
+  background-color: var(--section-background);
+}
+
+main section.pricing .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+main section.pricing .container .plan {
+  background-color: #fff;
+  box-shadow: 0 0 20px 0px #9e9e9e5c;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+main section.pricing .container .plan:hover::before,
+main section.pricing .container .plan:hover::after {
+  width: 100%;
+}
+
+main section.pricing .container .plan::before {
+  left: 0;
+  top: 0;
+}
+
+main section.pricing .container .plan::after {
+  right: 0;
+  bottom: 0;
+}
+
+main section.pricing .container .plan::before,
+main section.pricing .container .plan::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 50%;
+  background: rgb(239 239 239 / 50%);
+  z-index: -1;
+  transition: var(--main-transition);
+}
+
+main section.pricing .container .hot .hot__deal {
+  writing-mode: vertical-lr;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  padding: 1.5rem 0.5rem;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: bold;
+}
+
+main section.pricing .container .hot .hot__deal::after {
+  content: "";
+  position: absolute;
+  border-color: transparent transparent #fff transparent;
+  border-width: 20px;
+  border-style: solid;
+  left: 0;
+  bottom: 0px;
+}
+
+main section.pricing .container .plan .head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-block: 2rem;
+}
+
+main section.pricing .container .plan .head h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+main section.pricing .container .plan .head img {
+  width: 80px;
+  margin-block: 2rem;
+}
+
+main section.pricing .container .plan .head h4 {
+  color: var(--main-color);
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+main section.pricing .container .plan .head span {
+  text-transform: capitalize;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+main section.pricing .container .plan ul {
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+main section.pricing .container .plan ul li {
+  padding: 1.4rem;
+  border-top: 1px solid #eee;
+}
+
+main section.pricing .container .plan ul li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-inline-end: 0.5rem;
+  color: var(--main-color);
+}
+
+main section.pricing .container .plan button {
+  outline: none;
+  border: none;
+  padding: 0.8rem 1rem;
+  display: block;
+  margin: 2rem auto;
+  color: var(--main-color);
+  font-weight: bold;
+  background-color: transparent;
+  text-transform: capitalize;
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+main section.pricing .container .plan button:hover {
+  color: white;
+  background-color: var(--main-color-alt);
+  border-color: white;
+}
+@media (min-width: 1200px) {
+  main section.pricing .container .plan:nth-child(2) {
+    transform: translateY(-25px);
+  }
+}
+
+/* ======================/Pricing ======================== */
+
+/* ====================== Videos  ======================== */
+
+main section.videos {
+  padding-block: var(--section-spacing);
+}
+
+main section.videos .container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  text-transform: capitalize;
+}
+
+main section.videos .container .video__list {
+  border: 1px solid #ddd;
+}
+
+main section.videos .container .video__list .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 1.2rem 1rem;
+  font-weight: bold;
+}
+
+main section.videos .container .video__list ul li {
+  padding: 1.2rem 1rem 0px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-top: 1px solid #ddd;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+
+main section.videos .container .video__list ul li:hover {
+  color: var(--main-color);
+  background-color: #fafafa;
+}
+
+main section.videos .container .video__list ul li span {
+  display: block;
+  margin-block-start: 5px;
+  padding: 0 0 1.2rem;
+  color: #777;
+}
+
+main section.videos .container .video__preview {
+  background-color: #e2e2e2;
+}
+
+main section.videos .container .video__preview .preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0.65rem;
+}
+
+main section.videos .container .video__preview .preview span {
+  display: block;
+  background: white;
+  padding: 1rem 0.8rem;
+}
+@media (max-width: 991px) {
+  main section.videos .container {
+    display: block;
+  }
+}
+
+/* ======================/Videos ======================== */
+
+/* ====================== Stats  ======================== */
+
+main section.stats {
+  background: url(../images/stats.webp) no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  /* min-height: 300px; */
+  padding-block: var(--section-spacing);
+}
+
+main section.stats::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(255 255 255 / 95%);
+  z-index: -1;
+}
+
+main section.stats h2 {
+  font-weight: bold;
+  font-size: 40px;
+  width: fit-content;
+  margin: 0 auto 50px;
+  position: relative;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+main section.stats .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+main section.stats .container .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 1.9rem 0.9rem;
+  position: relative;
+  cursor: pointer;
+}
+main section.stats .container .box::before,
+main section.stats .container .box::after {
+  content: "";
+  position: absolute;
+  width: 1%;
+  height: 0;
+  background-color: var(--main-color);
+  transition: 0.5s linear;
+  cursor: pointer;
+}
+main section.stats .container .box::before {
+  left: 0;
+  top: 0;
+}
+
+main section.stats .container .box::after {
+  right: 0;
+  bottom: 0;
+}
+
+main section.stats .container .box:hover::before,
+main section.stats .container .box:hover::after {
+  height: 100%;
+  cursor: pointer;
+}
+main section.stats .container .box span.number {
+  display: block;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-block: 0.7rem;
+}
+
+main section.stats .container .box span.text {
+  color: var(--main-color);
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ======================/Stats ======================== */
+
+/* ====================== Discount  ======================== */
+
+main section.discount {
+  padding-block-end: var(--section-spacing);
+}
+main section.discount .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+main section.discount .container > div {
+  flex-basis: 50%;
+  padding-block-start: 4rem;
+  padding-inline: 1.4rem;
+}
+
+main section.discount .container .left-col {
+  position: relative;
+  background-image: url(../images/discount-background1.webp);
+  background-size: cover;
+  z-index: 1;
+  animation: change-bg 10s linear infinite alternate;
+}
+
+main section.discount .container .left-col::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(29 161 242 / 97%);
+  z-index: -1;
+}
+
+main section.discount .container .left-col h2.sec__head {
+  color: white;
+}
+
+main section.discount .container h2.sec__head {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: -2px;
+  margin-block-end: 3rem;
+}
+
+main section.discount .container .left-col p {
+  color: white;
+  line-height: 1.8;
+}
+
+main section.discount .container .left-col img {
+  width: 300px;
+  margin-inline: auto;
+}
+
+main section.discount .container .right-col {
+  padding-block-start: 4rem;
+}
+
+main section.discount .container .right-col form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main section.discount .container .right-col form .input {
+  border: none;
+  outline: none;
+  margin-block: 1rem;
+  width: 100%;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+  caret-color: var(--main-color);
+}
+
+main section.discount .container .right-col form .input::placeholder {
+  text-transform: capitalize;
+}
+
+main section.discount .container .right-col form textarea.input {
+  resize: none;
+  height: 200px;
+}
+
+main section.discount .container .right-col form button {
+  border: none;
+  width: 100%;
+  background-color: var(--main-color);
+  padding-block: 0.8rem;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  main section.discount .container > div {
+    flex-basis: 100%;
+  }
+}
+
+/* ======================/Discount ======================== */
+
+/* ====================== Footer ======================== */
+
+footer {
+  background-color: #191919;
+  padding-block-start: var(--section-spacing);
+  text-transform: capitalize;
+  font-size: 0.8rem;
+}
+
+footer .container .wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2.5rem;
+  padding-block-end: 2rem;
+}
+
+footer .container .wrapper .col-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer .container .wrapper .col-1 h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+footer .container .wrapper .col-1 .social {
+  margin-block: 1rem;
+}
+
+footer .container .wrapper .col-1 .social i {
+  width: 60px;
+  padding: 0.9rem;
+  background-color: #303030;
+  color: #b9b9b9;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+
+footer .container .wrapper .col-1 .social i:nth-child(1):hover {
+  background-color: #1877f2;
+}
+
+footer .container .wrapper .col-1 .social i:nth-child(2):hover {
+  background-color: #1da1f2;
+}
+
+footer .container .wrapper .col-1 .social i:nth-child(3):hover {
+  background-color: #ff0000;
+}
+
+footer .container .wrapper .col-1 p {
+  color: #a5a5a5;
+  line-height: 2;
+}
+
+footer .container .wrapper .col-2 ul li {
+  padding: 0.9rem 0;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+
+footer .container .wrapper .col-2 ul li:not(:last-child) {
+  border-bottom: 1px solid #444;
+}
+
+footer .container .wrapper .col-2 ul li:hover {
+  padding-left: 0.6rem;
+}
+
+footer .container .wrapper .col-2 ul li::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\F101";
+  font-weight: 900;
+  margin-right: 10px;
+  color: var(--main-color);
+}
+footer .container .wrapper .col-2 ul li a {
+  color: #a5a5a5;
+}
+
+footer .container .wrapper .col-3 {
+  display: grid;
+  grid-auto-flow: row;
+  color: #a5a5a5;
+}
+
+footer .container .wrapper .col-3 i {
+  color: var(--main-color);
+  font-size: 1.5rem;
+}
+
+footer .container .wrapper .col-3 > * {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+footer .container .wrapper .col-3 span {
+  display: block;
+}
+
+footer .container .wrapper .col-4 .img__holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+footer .container .wrapper .col-4 .img__holder img {
+  width: 78px;
+  border: 3px solid white;
+}
+
+footer p.copyright {
+  text-align: center;
+  padding-block: 1rem;
+  border-top: 1px solid #444;
+  color: #a5a5a5;
+  font-size: 0.8rem;
+}
+
+footer p.copyright > span.heart,
+footer p.copyright > span:last-child {
+  font-size: 1rem;
+}
+
+footer p.copyright > span:last-child {
+  font-weight: 700;
+  color: var(--main-color-alt);
+  font-variant: all-small-caps;
+}
+
+@media (max-width: 767px) {
+  footer {
+    text-align: center;
+  }
+  footer .container .col-3 > * {
+    flex-direction: column;
+    margin-block-start: 1rem;
+  }
+}
+
+/* ======================/Footer ======================== */
+
+/* ====================== KeyFrames ======================== */
+
+/* Landing Animation For Image */
+@keyframes up-down {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(10%);
+  }
+}
+
+/* Landing Animation For Arrow */
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/* Article Arrow Animation */
+@keyframes move-right {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+/* Gallery  Animation */
+@keyframes fade-out {
+  0%,
+  40% {
+    width: 10%;
+    height: 0;
+  }
+
+  100% {
+    width: 200%;
+    height: 200%;
+  }
+}
+
+/* Discount Animation */
+@keyframes change-bg {
+  0%,
+  50% {
+    background-image: url(../images/discount-background2.webp);
+  }
+  100% {
+    background-image: url(../images/discount2.webp);
+  }
+}
+
+/* ======================/KeyFrames ======================== */
