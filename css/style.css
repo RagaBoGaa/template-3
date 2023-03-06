@@ -31,6 +31,61 @@ ul {
   list-style: none;
 }
 
+.scroll-bar {
+  background: linear-gradient(
+    to right,
+    var(--main-color),
+    var(--main-color-alt)
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  transition: 0.2s ease-out;
+  z-index: 9999;
+  -webkit-transition: 0.2s ease-out;
+  -moz-transition: 0.2s ease-out;
+  -ms-transition: 0.2s ease-out;
+  -o-transition: 0.2s ease-out;
+}
+
+.scroll-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  padding: 17px;
+  background-color: transparent;
+  color: #2196f3;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  border: 3.5px solid #2196f3;
+  outline: none;
+  z-index: 9999;
+  cursor: pointer;
+  transition: 0.3s linear;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -ms-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: none;
+}
+.scroll-top:hover {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+}
 /* ====================== Compononet ======================== */
 
 /* ================== Section Heading With Moving Dots ================== */
